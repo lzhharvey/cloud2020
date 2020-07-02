@@ -66,5 +66,9 @@ public class PaymentController {
             return new CommonResult(444,"查询数据失败");
         }
     }
-
+    //    http://localhost:8001/payment/lb
+    @GetMapping(value = "/payment/lb")
+    public String getPaymentLB(){
+        return serverPort;
+    }
 }

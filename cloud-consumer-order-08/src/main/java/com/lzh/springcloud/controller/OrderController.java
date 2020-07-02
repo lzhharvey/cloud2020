@@ -2,13 +2,20 @@ package com.lzh.springcloud.controller;
 
 import com.lzh.springcloud.entities.CommonResult;
 import com.lzh.springcloud.entities.Payment;
+import com.lzh.springcloud.lb.LoadBalancer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+
+import javax.annotation.Resource;
+import java.net.URI;
+import java.util.List;
 
 /**
  * @ClassName OrderController
@@ -24,6 +31,12 @@ public class OrderController {
     public static final String PAYMENT = "http://CLOUD-PAYMENT-SERVICE";
     @Autowired
     private RestTemplate restTemplate;
+    @Resource
+    private DiscoveryClient discoveryClient;
+    @Resource
+    private LoadBalancer loadBalancer;
+
+
 
     //    http://localhost/consumer/payment/get/1
     @GetMapping("/consumer/payment/get/{id}")
@@ -38,6 +51,19 @@ public class OrderController {
     public CommonResult<Payment> create(Payment payment){
         return  restTemplate.postForObject(PAYMENT+"/payment/create",payment, CommonResult.class);
     }
+
+    @GetMapping(value = "/consumer/payment/lb")
+    public String getPaymentLB(){
+        List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
+        if (instances == null || instances.size() <= 0){
+            return null;
+        }
+        ServiceInstance serviceInstance = loadBalancer.instances(instances);
+        URI uri = serviceInstance.getUri();
+        System.out.println("URI地址："+uri.toString());
+        return restTemplate.getForObject(uri+"/payment/lb",String.class);
+    }
+
 
 
 }

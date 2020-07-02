@@ -35,7 +35,7 @@ public class PaymentController {
             return new CommonResult(444,"插入数据失败55555");
         }
     }
-//    http://localhost:8001/payment/get/1
+//    http://localhost:8002/payment/get/1
     @GetMapping(value = "/payment/get/{id}")
     public CommonResult<Payment> getPaymentById(@PathVariable("id") Long  id){
         Payment paymentById = paymentService.getPaymentById(id);
@@ -46,5 +46,12 @@ public class PaymentController {
             return new CommonResult(444,"查询数据失败");
         }
     }
+    //    http://localhost:8002/payment/lb
+    @GetMapping(value = "/payment/lb")
+    public String getPaymentLB(){
+        return serverPort;
+    }
+
+
 
 }
