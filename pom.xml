@@ -20,6 +20,7 @@
       <module>cloud-consumerconsul-order80</module>
       <module>cloud-consumer-feign-order80</module>
       <module>cloud-provider-hystrix-payment8001</module>
+      <module>cloud-consumer-feign-hystrix-order80</module>
   </modules>
   <!--  以下配置的意思是使用maven分模块管理，都会有一个父级项目 ，-->
 <!--  pom文件一个重要的属性就是packaging（打包类型），一般来说-->
