@@ -23,6 +23,8 @@
       <module>cloud-consumer-feign-hystrix-order80</module>
       <module>cloud-consumer-hystrix-dashboard9001</module>
       <module>cloud-gateway-gateway9527</module>
+      <module>cloud-config-center-3344</module>
+      <module>cloud-config-client-3355</module>
   </modules>
   <!--  以下配置的意思是使用maven分模块管理，都会有一个父级项目 ，-->
 <!--  pom文件一个重要的属性就是packaging（打包类型），一般来说-->
