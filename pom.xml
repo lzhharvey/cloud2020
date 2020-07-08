@@ -26,6 +26,8 @@
       <module>cloud-config-center-3344</module>
       <module>cloud-config-client-3355</module>
       <module>cloud-config-client-3366</module>
+      <module>cloud-stream-rabbitmq-provider8801</module>
+      <module>cloud-stream-rabbitmq-consumer8802</module>
   </modules>
   <!--  以下配置的意思是使用maven分模块管理，都会有一个父级项目 ，-->
 <!--  pom文件一个重要的属性就是packaging（打包类型），一般来说-->
