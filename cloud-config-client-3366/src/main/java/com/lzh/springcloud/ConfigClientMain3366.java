@@ -1,18 +1,19 @@
-package springcloud;
+package com.lzh.springcloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * @ClassName StreamMQMain8802
+ * @ClassName ConfigClientMain3366
  * @Description TODO
  * @Author liuzhihui
- * @Date 2020/7/8 15:15
+ * @Date 2020/7/5 23:14
  * @Version 1.0
  **/
 @SpringBootApplication
-public class StreamMQMain8803 {
+public class ConfigClientMain3366 {
     public static void main(String[] args) {
-        SpringApplication.run(StreamMQMain8803.class, args);
+        SpringApplication.run( ConfigClientMain3366.class,args);
     }
 }
+
