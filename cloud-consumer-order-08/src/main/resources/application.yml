@@ -1,10 +1,13 @@
 server:
   port: 80
-
 spring:
   application:
     name: cloud-order-service
-
+  zipkin:
+    base-url: http://192.168.63.131:9411
+  sleuth:
+    sampler:
+      probability: 1  #采样率值介于0-1,1则表示全部采样，一般0.5
 ## eureka客户端配置
 eureka:
   client:
