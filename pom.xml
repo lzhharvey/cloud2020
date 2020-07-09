@@ -29,6 +29,8 @@
       <module>cloud-stream-rabbitmq-provider8801</module>
       <module>cloud-stream-rabbitmq-consumer8802</module>
       <module>cloud-stream-rabbitmq-consumer8803</module>
+    <module>cloudalibaba-provider-payment9001</module>
+      <module>cloudalibaba-provider-payment9002</module>
   </modules>
   <!--  以下配置的意思是使用maven分模块管理，都会有一个父级项目 ，-->
 <!--  pom文件一个重要的属性就是packaging（打包类型），一般来说-->
