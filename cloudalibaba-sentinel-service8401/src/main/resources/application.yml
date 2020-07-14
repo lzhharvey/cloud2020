@@ -11,6 +11,22 @@ spring:
       transport:
         dashboard: localhost:8082 #sentinel控制台地址
         port: 8719  #默认8719，假如被占用了会自动从8719开始依次+1扫描。直至找到未被占用的端口
+      datasource:
+        flow:  #名称随便
+          nacos:
+            server-addr: localhost:8848
+            dataId:  cloudalibaba-sentinel-service-flow-rules
+            groupId: SENTINEL_GROUP  #nacos的默认分组
+            data-type: json  #json串是规则
+            rule-type: flow #com.alibaba.cloud.sentinel.datasource.RuleType枚举类里有更多的规则类型
+#            namespace:  nacos中存储规则的namespace
+#        degrade:  #名称随便
+#          nacos:
+#            server-addr: localhost:8848
+#            dataId:  ${spring.application.name}-degrade-rules
+#            groupId: DEFAULT_GROUP  #nacos的默认分组
+#            data-type: json  #json串是规则
+#            rule-type: degrade	 #com.alibaba.cloud.sentinel.datasource.RuleType枚举类里有更多的规则类型
 #暴露监控端口
 management:
   endpoints:

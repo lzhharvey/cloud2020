@@ -36,6 +36,7 @@
       <module>cloudalibaba-sentinel-service8401</module>
       <module>cloudalibaba-provider-payment9003</module>
     <module>cloudalibaba-provider-payment9004</module>
+    <module>cloudalibaba-consumer-nacos-order84</module>
   </modules>
   <!--  以下配置的意思是使用maven分模块管理，都会有一个父级项目 ，-->
 <!--  pom文件一个重要的属性就是packaging（打包类型），一般来说-->
